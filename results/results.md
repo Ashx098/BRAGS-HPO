@@ -9,16 +9,23 @@ BRAGSGridSearch
 BRAGSRandomSearch
 
 📊 BRAGS Evaluation Table (So Far)
-| Dataset | Method | R² / Accuracy | Time (s) | Best Params |
-| :--- | :--- | :--- | :--- | :--- |
-| **Iris (Classification)** | GridSearchCV | 1.000 | 1.28 | `{'criterion': 'gini', 'max_depth': None, 'n_estimators': 10}` |
-| | RandomizedSearchCV | 1.000 | 0.38 | `{'n_estimators': 10, 'max_depth': None, 'criterion': 'gini'}` |
-| | BRAGSGridSearch | 1.000 | 0.46 | `{'n_estimators': 10, 'max_depth': None, 'criterion': 'gini'}` |
-| | BRAGSRandomSearch | 1.000 | 0.21 | `{'n_estimators': 100, 'max_depth': 3, 'criterion': 'entropy'}` |
-| **California Housing (Regression)** | GridSearchCV | 0.8438 | 16.36 | `{'learning_rate': 0.2, 'max_depth': 10, 'n_estimators': 100, 'num_leaves': 31}` |
-| | RandomizedSearchCV | 0.8276 | 4.65 | `{'num_leaves': 15, 'n_estimators': 100, 'max_depth': 5, 'learning_rate': 0.2}` |
-| | BRAGSGridSearch | 0.8438 | 4.91 | `{'n_estimators': 100, 'learning_rate': 0.2, 'max_depth': 10, 'num_leaves': 31}` |
-| | BRAGSRandomSearch | 0.8350 | 1.38 | `{'n_estimators': 100, 'learning_rate': 0.2, 'max_depth': 10, 'num_leaves': 15}` |
+| Dataset              | Task Type      | Method                | Score Type | Score      | Time (s) |
+| -------------------- | -------------- | --------------------- | ---------- | ---------- | -------- |
+| Iris                 | Classification | GridSearchCV          | Accuracy   | 1.000      | 1.28     |
+|                      |                | RandomizedSearchCV    | Accuracy   | 1.000      | 0.38     |
+|                      |                | **BRAGSGridSearch**   | Accuracy   | 1.000      | 0.46     |
+|                      |                | **BRAGSRandomSearch** | Accuracy   | 1.000      | 0.21     |
+| California Housing   | Regression     | GridSearchCV          | R² Score   | 0.8438     | 16.36    |
+|                      |                | RandomizedSearchCV    | R² Score   | 0.8276     | 4.65     |
+|                      |                | **BRAGSGridSearch**   | R² Score   | 0.8438     | 4.91     |
+|                      |                | **BRAGSRandomSearch** | R² Score   | 0.8350     | 1.38     |
+| 20 Newsgroups        | Text Classif.  | GridSearchCV          | Accuracy   | 0.8989     | 16.34    |
+|                      |                | RandomizedSearchCV    | Accuracy   | 0.8989     | 16.11    |
+|                      |                | **BRAGSGridSearch**   | Accuracy   | 0.8989     | 22.99    |
+| Digits (MNIST-small) | Image Classif. | GridSearchCV          | Accuracy   | 0.9778     | 14.71    |
+|                      |                | RandomizedSearchCV    | Accuracy   | 0.9778     | 2.67     |
+|                      |                | **BRAGSGridSearch**   | Accuracy   | **0.9833** | 6.85     |
+|                      |                | **BRAGSRandomSearch** | Accuracy   | 0.9778     | **1.37** |
 
 ### 🧠 Key Takeaways
 - **BRAGSGrid** consistently matches full Grid accuracy/R², with **~3x less time**
